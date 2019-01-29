@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title freemarket_sample_39
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .header
+      .logo
+        = image_tag('logo.svg', size: "134x36")
+      .top-form
+        %input.top-form{:placeholder => "キーワードから探す", :size => "100", :type => "text"}/
+        %input.top-form__submit{:type => "submit"}/
+        .search-icon
+          = fa_icon("search")
+      .top-list
+        = render 'drop-down'
+      .top-list__right
+        %ul
+          %li
+            = link_to root_path do
+              = image_tag('user_photo', class: 'user-photo-top')
+              マイページ
+          %li
+            = link_to root_path do
+              = fa_icon("bell")
+              お知らせ
+          %li
+            = link_to root_path do
+              = fa_icon('check')
+              やることリスト
+    = yield

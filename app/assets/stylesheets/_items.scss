@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+
+
+.item-box {
+  display: inline-block;
+  background-color: white;
+  margin: 0 5px;
+  &__body {
+    &__name {
+      font-size: 16px;
+    }
+    &__price {
+      text-align: right;
+    }
+  }
+}
+
+.item-image {
+  height: 213px;
+}

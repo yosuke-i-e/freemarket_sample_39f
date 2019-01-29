@@ -1,0 +1,46 @@
+$banner-padding-bottom: 390px;
+$top-list-size: 13px;
+$top-link-color: #0099e8;
+$top-margin-left: 20%;
+$bottom-banner-margin-left: 20%;
+
+@mixin bottom-icons($height: 68px, $margin-left: $bottom-banner-margin-left, $position: absolute, $top: 60%) {
+  height: $height;
+  margin-left: $margin-left;
+  position: $position;
+  top: $top;
+}
+
+@mixin dropdown-list ($display: block, $z-index: 2, $position: absolute, $top: 0, $left: 100%, $width: 12em) {
+  display: $display;
+  z-index: $z-index;
+  position: $position;
+  top: $top;
+  left: $left;
+  width: $width;
+}
+
+@mixin footer($margin: 0 25px, $width: 16em, $display: inline-block, $vertical-align: top, $text-align: center) {
+  margin: $margin;
+  width: $width;
+  display: $display;
+  vertical-align: $vertical-align;
+  text-align: $text-align;
+}
+
+@mixin flag ($height: 22px, $position: relative, $top: 4px, $right: 4px) {
+  height: $height;
+  position: $position;
+  top: $top;
+  right: $right;
+}
+
+@mixin overlay ($height: 2em, $width: 12em, $opacity: 0.7, $background-color: #212121, $position: absolute, $bottom: 1px, $left: 2em) {
+    height: $height;
+    width: $width;
+    opacity: $opacity;
+    background-color: $background-color;
+    position: $position;
+    bottom: $bottom;
+    left: $left;
+}
