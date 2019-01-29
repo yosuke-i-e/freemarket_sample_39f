@@ -1,24 +1,147 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false, unique: true|
+|profile|text||
+|point|integer||
+|image|string||
+|mail|string|null: false, unique: true|
+|password|integer|null: false|
 
-* Ruby version
+### Association
+- has_one :credit_card
+- has_one :address
+- has_many :comments
+- has_many :items
+- has_many :purchase_histories
 
-* System dependencies
 
-* Configuration
+## credit_cardsテーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|number|integer|null: false, unique: true|
+|expiration_m|integer|null: false|
+|expiration_y|integer|null: false|
+|security_code|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to: user
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## addressesテーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|postal_code|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|house_number|string|null: false|
+|building_name|string|null: false|
+|phone_number|integer|null: false, unique: true|
+|user_id|references|null: false, foreign_key: true|
 
-* ...
+### Association
+- belongs_to :user
+
+
+## itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|index: true|
+|state|string||
+|postage|string||
+|shipping_date|integer||
+|shipping_method|string||
+|price|integer|null: falise|
+|description|text||
+|user_id|references|null: false, foreign_key: true|
+|region_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
+
+### Association
+- has_one :purchase_history
+- has_many :comments
+- has_many :item_images
+- belongs_to :user
+- belongs_to :region
+- belongs_to :category
+- belongs_to :brand
+
+
+## regionsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+
+### Association
+- has_many: items
+
+
+## brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+
+### Association
+- has_many: items
+
+
+## categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+
+### Association
+- has_many: items
+
+
+## item_imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|string|null: false|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to: item
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+
+## purchase_historiesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|status|string|null: false|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item

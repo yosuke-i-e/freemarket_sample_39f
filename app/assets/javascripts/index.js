@@ -1,0 +1,27 @@
+$(function() {
+  $('.owl-carousel').owlCarousel({
+    margin:10,
+    center:true,
+    loop:true,
+    autoWidth:true,
+    autoplay:true,
+    autoplayHoverPause:true,
+    smartSpeed:500,
+    URLhashListener:true,
+    responsiveClass:true,
+    responsive:{
+      0:{
+        items:1,
+        nav:true
+      },
+      600:{
+        items:1,
+        nav:false
+      },
+      1000:{
+        items:1,
+        nav:true,
+      }
+    }
+  })
+});
