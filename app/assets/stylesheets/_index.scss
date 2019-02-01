@@ -25,15 +25,15 @@
 
 .banner {
   &__hajimeru-fortune {
-    background-image: url(banner-hajimeru-fortune.jpg);
+    background-image: image-url("banner-hajimeru-fortune.jpg");
     padding-bottom: $banner-padding-bottom;
   }
   &__featured-hobby {
-    background-image: url(banner-featured-hobby.jpg);
+    background-image: image-url("banner-featured-hobby.jpg");
     padding-bottom: $banner-padding-bottom;
   }
   &__main {
-    background-image: url(main_bg_pc.jpg);
+    background-image: image-url("main_bg_pc.jpg");
     padding-bottom: $banner-padding-bottom;
     background-repeat: no-repeat;
     h2 {
@@ -49,11 +49,11 @@
     }
   }
   &__new-cm {
-    background-image: url(banner-new-cm.png);
+    background-image: image-url("banner-new-cm.png");
     padding-bottom: $banner-padding-bottom;
   }
   &__bokurano-heisei {
-    background-image: url(banner-bokurano-heisei.jpg);
+    background-image: image-url("banner-bokurano-heisei.jpg");
     padding-bottom: $banner-padding-bottom;
   }
 }
@@ -135,7 +135,7 @@
 
 
 .bottom-app {
-  background-image: url(bottom-app.jpg);
+  background-image: image-url("bottom-app.jpg");
   padding-bottom: 260px;
   position: relative;
   color: white;
