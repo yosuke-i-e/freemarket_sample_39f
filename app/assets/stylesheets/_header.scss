@@ -51,6 +51,96 @@ input.top-form {
     li {
       display: inline-block;
       margin: 0 5px;
+      .mypage-dropdown {
+        display: none;
+      }
+    }
+    li:hover {
+      .mypage-dropdown {
+        display: block;
+        position: absolute;
+        right: 50px;
+        padding-bottom: 30px;
+        z-index: 11;
+        background-color: white;
+        &__image {
+          background-image: image-url("user-bg.jpg");
+          padding-bottom: 10px;
+          width: 300px;
+          z-index: 12;
+          text-align: center;
+          &--photo {
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+            top: 20px;
+          }
+        }
+        &__name {
+          text-align: center;
+        }
+        ul {
+          text-align: center;
+        }
+        @mixin mypage-dropdown-box($margin: 0 10px, $background-color: #f3f3f3) {
+          margin: $margin;
+          background-color: $background-color;
+        }
+        @mixin mypage-dropdown-box-list($display: block, $border: solid 0 gray, $height: 40px, $line-height: 40px) {
+          display: $display;
+          border: $border;
+          height: $height;
+          line-height: $line-height;
+        }
+        &__upper-box {
+          @include mypage-dropdown-box;
+          li {
+            @include mypage-dropdown-box-list;
+            text-align: left;
+            a {
+              width: 100%;
+              display: block;
+              position: absolute;
+            }
+          }
+        }
+        &__upper-box-float {
+          float: right;
+          margin-right: 15px;
+          li {
+            @include mypage-dropdown-box-list(block, none, 40px, 40px)
+          }
+          li:after {
+            content:"＞";
+            color: gray;
+          }
+        }
+        &__bottom-box {
+          @include mypage-dropdown-box(0, #f3f3f3);
+          margin-top: 10px;
+          li {
+            @include mypage-dropdown-box-list;
+            text-align: left;
+            a {
+              width: 100%;
+              display: block;
+              position: absolute;
+            }
+          }
+        }
+        &__bottom-box-float {
+          float: right;
+          margin-top: 10px;
+          margin-right: 15px;
+          li {
+            @include mypage-dropdown-box-list(block, none, 40px, 40px)
+          }
+          li:after {
+            content:"＞";
+            color: gray;
+          }
+        }
+      }
     }
     a {
       color: black;
