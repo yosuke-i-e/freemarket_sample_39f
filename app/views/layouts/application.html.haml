@@ -97,9 +97,9 @@
         %h2 今すぐ無料ダウンロード！
         .bottom-app__icons
           = image_tag('mercari-icon.png', class: 'bottom-app__icons--m')
-          %a.bottom-app__icons--itunes{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+          = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', class: 'bottom-app__icons--itunes' do
             = image_tag('app-store.svg')
-          %a.bottom-app__icons--google{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+          = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'bottom-app__icons--google' do
             = image_tag('google-play.svg')
         .bottom-app__image
           = image_tag('bottom-app-phone.png', class: 'bottom-app__image--phone')
