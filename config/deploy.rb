@@ -1,8 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :branch, 'basic_auth'
-
 set :application, "freemarket_sample_39f"
 set :repo_url, "git@github.com:yosuke-i-e/freemarket_sample_39f.git"
 
