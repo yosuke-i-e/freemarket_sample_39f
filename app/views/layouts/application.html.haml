@@ -10,67 +10,153 @@
   %body
     .header
       .logo
-        = image_tag('logo.svg', size: "134x36")
+        = link_to root_path do
+          = image_tag('logo.svg', size: "134x36")
       .top-form
         %input.top-form{:placeholder => "キーワードから探す", :size => "100", :type => "text"}/
         %input.top-form__submit{:type => "submit"}/
         .search-icon
           = fa_icon("search")
       .top-list
-        = render 'drop-down'
+        = render 'items/drop-down'
       .top-list__right
+        - if user_signed_in?
+          %ul
+            %li
+              = link_to user_path(current_user.id) do
+                = image_tag('user_photo.png', class: 'user-photo-top')
+                マイページ
+              .mypage-dropdown
+                .mypage-dropdown__image
+                  = image_tag('user_photo.png', class: 'mypage-dropdown__image--photo')
+                .mypage-dropdown__name
+                  ユーザー名
+                %ul
+                  %li
+                    =link_to '評価:0', root_path
+                  %li
+                    =link_to '出品数:0', root_path
+                %ul.mypage-dropdown__upper-box-float
+                  %li
+                    0
+                  %li
+                    0
+                %ul.mypage-dropdown__upper-box
+                  %li
+                    =link_to '売上金', root_path
+                  %li
+                    =link_to 'ポイント', root_path
+                %ul.mypage-dropdown__bottom-box-float
+                  %li
+                  %li
+                  %li
+                  %li
+                  %li
+                  %li
+                %ul.mypage-dropdown__bottom-box
+                  %li
+                    =link_to 'いいね！　一覧', root_path
+                  %li
+                    =link_to '出品した商品-出品中', root_path
+                  %li
+                    =link_to '出品した商品-取引中', root_path
+                  %li
+                    =link_to'出品した商品-売却済', root_path
+                  %li
+                    =link_to '購入した商品-取引中', root_path
+                  %li
+                    =link_to '購入した商品-過去の取引', root_path
+
+            %li
+              = link_to root_path do
+                = fa_icon("bell")
+                お知らせ
+            %li
+              = link_to root_path do
+                = fa_icon('check')
+                やることリスト
+        - else
+          %ul
+            %li
+              = link_to new_user_session_path do
+                .top-list__right--login
+                  ログイン
+            %li
+              = link_to new_user_registration_path do
+                .top-list__right--reg
+                  新規会員登録
+    = link_to 'root_path' do
+      .exhibit-button
+        .exhibit-button__camera
+          %h3 出品
+          = fa_icon("camera 3x")
+    = yield
+    .bottom-app
+      %h3
+        スマホでカンタンフリマアプリ
+        %h2 今すぐ無料ダウンロード！
+        .bottom-app__icons
+          = image_tag('mercari-icon.png', class: 'bottom-app__icons--m')
+          = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', class: 'bottom-app__icons--itunes' do
+            = image_tag('app-store.svg')
+          = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: 'bottom-app__icons--google' do
+            = image_tag('google-play.svg')
+        .bottom-app__image
+          = image_tag('bottom-app-phone.png', class: 'bottom-app__image--phone')
+    .footer
+      .footer__about
+        %h3 メルカリについて
+        %ul
+          %li= link_to '会社概要（運営会社）', 'root_path'
+          %li= link_to 'プライバシーポリシー', 'root_path'
+          %li= link_to 'メルカリ利用規約', 'root_path'
+          %li= link_to 'メルカリ利用規約・有償ポイントに関する特約', 'root_path'
+          %li= link_to 'あんしんスマホサポート制度に関する利用特約', 'root_path'
+          %li= link_to 'コンプライアンスポリシー', 'root_path'
+          %li= link_to '個人データの安全管理に係る基本方針', 'root_path'
+          %li= link_to '定商取引に関する表記', 'root_path'
+          %li= link_to '資金決済法に基づく表示', 'root_path'
+          %li= link_to '法令順守と犯罪抑止のために', 'root_path'
+          %li= link_to '採用情報', 'root_path'
+      .footer__view
+        %h3 メルカリを見る
+        %ul
+          %li= link_to 'カテゴリー一覧', 'root_path'
+          %li= link_to 'ブランド一覧', 'root_path'
+          %li= link_to '出品地域一覧', 'root_path'
+          %li= link_to '公式ブログ', 'root_path'
+          %li= link_to '公式Twitter', 'root_path'
+          %li= link_to '公式Facebook', 'root_path'
+      .footer__help
+        %h3 ヘルプ＆ガイド
+        %ul
+          %li= link_to 'メルカリガイド', 'root_path'
+          %li= link_to 'メルカリロゴ利用ガイドライン', 'root_path'
+          %li= link_to 'お知らせ', 'root_path'
+          %li= link_to 'らくらくメルカリ便とは', 'root_path'
+          %li= link_to 'ゆうゆうメルカリ便とは', 'root_path'
+          %li= link_to '大型らくらくメルカリ便とは', 'root_path'
+          %li= link_to '車体取引ガイド', 'root_path'
+          %li= link_to '返品・返金ポリシー', 'root_path'
+          %li= link_to 'メルカリあんしん・あんぜん宣言！', 'root_path'
+          %li= link_to '偽ブランド品撲滅への取り組み', 'root_path'
+          %li= link_to 'メルカリボックス', 'root_path'
+      .footer__country
+        %h3 国
         %ul
           %li
-            = link_to root_path do
-              = image_tag('user_photo.png', class: 'user-photo-top')
-              マイページ
-            .mypage-dropdown
-              .mypage-dropdown__image
-                = image_tag('user_photo.png', class: 'mypage-dropdown__image--photo')
-              .mypage-dropdown__name
-                ユーザー名
-              %ul
-                %li
-                  =link_to '評価:0', root_path
-                %li
-                  =link_to '出品数:0', root_path
-              %ul.mypage-dropdown__upper-box-float
-                %li
-                  0
-                %li
-                  0
-              %ul.mypage-dropdown__upper-box
-                %li
-                  =link_to '売上金', root_path
-                %li
-                  =link_to 'ポイント', root_path
-              %ul.mypage-dropdown__bottom-box-float
-                %li
-                %li
-                %li
-                %li
-                %li
-                %li
-              %ul.mypage-dropdown__bottom-box
-                %li
-                  =link_to 'いいね！　一覧', root_path
-                %li
-                  =link_to '出品した商品-出品中', root_path
-                %li
-                  =link_to '出品した商品-取引中', root_path
-                %li
-                  =link_to'出品した商品-売却済', root_path
-                %li
-                  =link_to '購入した商品-取引中', root_path
-                %li
-                  =link_to '購入した商品-過去の取引', root_path
-
+            = image_tag('flag_us.png', class: 'footer__country__flag-us')
+            = link_to 'United States', 'root_path'
+            .footer__country__overlay-box
+              .footer__country__overlay
           %li
-            = link_to root_path do
-              = fa_icon("bell")
-              お知らせ
+            = image_tag('flag_uk.png', class: 'footer__country__flag-uk')
+            = link_to 'United Kingdom', 'root_path'
+            .footer__country__overlay-box
+              .footer__country__overlay
           %li
-            = link_to root_path do
-              = fa_icon('check')
-              やることリスト
-    = yield
+            = image_tag('flag_jp.png', class: 'footer__country__flag-jp')
+            = link_to '日本', 'root_path'
+      .footer__logo
+        = image_tag('logo-white.svg', class: 'footer__logo__image')
+        %p.footer__copyright ©️2019 Mercari

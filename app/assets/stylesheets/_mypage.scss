@@ -1,0 +1,256 @@
+.nav {
+  padding-left: 10%;
+  border-top: solid thin #eee;
+  border-bottom: solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  font-size: $top-list-size;
+  ul {
+    line-height: 50px;
+    li {
+      display: inline-block;
+    }
+  }
+  &__1:after {
+    content:"＞";
+    color: gray;
+  }
+  &__2 {
+    font-weight: bold;
+  }
+}
+
+.mypage-contents {
+  background-color: $background-color-gray;
+  padding-top: 30px;
+}
+
+.mypage-side-list {
+  display: inline-block;
+  margin-left: 10%;
+  &__body {
+    width: 250px;
+    margin: 0 20px 20px 0;
+    background-color: white;
+    font-size: $top-list-size;
+    ul {
+      li {
+        @include mypage-dropdown-box-list;
+        text-align: left;
+        padding-left: 10px;
+        border-top: solid thin #eee;
+        border-bottom: solid thin #eee;
+        a {
+          display: block;
+          position: absolute;
+        }
+        a:after {
+          content:"＞";
+          color: gray;
+          position: absolute;
+          left: 0;
+          width: 220px;
+          text-align: right;
+          transition: 0.5s;
+        }
+        a:hover:after {
+          transform: translateX(5px);
+          font-weight: bold;
+          color: black;
+        }
+      }
+      li:hover {
+        background-color: #f2f2f2;
+      }
+    }
+
+    &--p {
+      font-weight: bold;
+      margin-left: 10%;
+      display: block;
+      width: 240px;
+    }
+  }
+}
+
+
+.mypage-information {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30px;
+  &__image {
+    background-image: image-url("user-bg.jpg");
+    height: 200px;
+    width: 700px;
+    text-align: center;
+    &__icon {
+      border-radius: 50%;
+      height: 60px;
+      margin-top: 5%;
+    }
+    &__name {
+      font-size: 15px;
+      font-weight: bold;
+    }
+    &__score {
+      font-size: 13px;
+    }
+  }
+  &__tabs {
+    margin-top: 50px;
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    input[name="tab_item"] {
+      display: none;
+    }
+    input:checked + &--item {
+      background-color: #fff;
+      border-top: solid red;
+      border-width: thin;
+    }
+    #info:checked ~ #info_content,
+    #todo:checked ~ #todo_content {
+      display: block;
+    }
+    &--item {
+      width: calc(100%/2);
+      height: 70px;
+      background-color: #d9d9d9;
+      line-height: 70px;
+      font-size: 16px;
+      text-align: center;
+      color: #565656;
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: bold;
+      :hover {
+        opacity: 0.75;
+      }
+    }
+    &--content {
+      display: none;
+      padding-top: 40px;
+      clear: both;
+      overflow: hidden;
+      &__all {
+        &--body {
+          margin: 10px auto;
+          background-color: $background-color-gray;
+          height: 60px;
+          width: 650px;
+          text-align: center;
+          font-size: 15px;
+          line-height: 60px;
+          a {
+            display: block;
+            height: 60px;
+            width: 650px;
+          }
+          a:hover {
+            background-color: #fafafa;
+          }
+        }
+      }
+    }
+  }
+}
+
+.information-list {
+  border-bottom: solid thin $border-color-gray;
+  height: 70px;
+  a {
+    display: inline-block;
+    width: 700px;
+    position: relative;
+  }
+  a:hover {
+    background-color: #eee;
+  }
+  a:after {
+    content:"＞";
+    color: gray;
+    display: block;
+    text-align: right;
+    width: 680px;
+    position: absolute;
+    bottom: 30px;
+
+  }
+  &--icon {
+    height: 50px;
+    display: inline-block;
+  }
+  &__wrapper {
+    padding: 10px 0 10px 20px;
+  }
+  &__body {
+    display: inline-block;
+    vertical-align: top;
+    &--text {
+      font-size: 15px;
+    }
+    &--time {
+      font-size: 13px;
+      color: gray;
+    }
+  }
+}
+
+.mypage-bought {
+  display: inline-block;
+  margin-top: 30px;
+  width: 700px;
+  &--head {
+    height: 70px;
+    background-color: #fafafa;
+    font-weight: bold;
+    line-height: 70px;
+    padding-left: 20px;
+  }
+  &__tabs {
+    margin-top: 50px;
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    input[name="bought_tab_item"] {
+      display: none;
+    }
+    input:checked + &--item {
+      background-color: #fff;
+      border-top: solid red;
+      border-width: thin;
+    }
+    #transaction:checked ~ #transaction_content,
+    #trade-history:checked ~ #trade-history_content {
+      display: block;
+    }
+    &--item {
+      width: calc(100%/2);
+      height: 70px;
+      background-color: #d9d9d9;
+      line-height: 70px;
+      font-size: 16px;
+      text-align: center;
+      color: #565656;
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: bold;
+      :hover {
+        opacity: 0.75;
+      }
+    }
+    &--content {
+      display: none;
+      padding-top: 40px;
+      clear: both;
+      overflow: hidden;
+      &__none {
+        color: gray;
+        line-height: 100px;
+        text-align: center;
+      }
+    }
+  }
+}

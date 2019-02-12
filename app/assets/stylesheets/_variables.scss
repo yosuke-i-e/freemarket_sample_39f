@@ -3,6 +3,8 @@ $top-list-size: 13px;
 $top-link-color: #0099e8;
 $top-margin-left: 20%;
 $bottom-banner-margin-left: 20%;
+$background-color-gray: #f3f3f3;
+$border-color-gray: #eee;
 
 @mixin bottom-icons($height: 68px, $margin-left: $bottom-banner-margin-left, $position: absolute, $top: 60%) {
   height: $height;
@@ -43,4 +45,16 @@ $bottom-banner-margin-left: 20%;
     position: $position;
     bottom: $bottom;
     left: $left;
+}
+
+@mixin mypage-dropdown-box($margin: 0 10px, $background-color: #f3f3f3) {
+  margin: $margin;
+  background-color: $background-color;
+}
+
+@mixin mypage-dropdown-box-list($display: block, $border: solid 0 gray, $height: 50px, $line-height: 50px) {
+  display: $display;
+  border: $border;
+  height: $height;
+  line-height: $line-height;
 }

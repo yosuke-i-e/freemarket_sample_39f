@@ -1,11 +1,12 @@
 .header {
   position: relative;
-  margin: 0 70px;
+  margin: 0 10%;
   padding-bottom: 40px;
 }
 
 .logo {
   margin-left: 40px;
+  margin-top: 10px;
 }
 
 .top-form {
@@ -38,8 +39,10 @@ input.top-form {
 
 .top-list {
   float: left;
-  padding: 10px 5%;
+  padding: 10px 0;
   font-size: $top-list-size;
+  line-height: 30px;
+  position: absolute;
   a {
     color: black;
   }
@@ -51,6 +54,7 @@ input.top-form {
     padding: 10px 5%;
     font-size: $top-list-size;
     position: relative;
+    line-height: 30px;
     li {
       display: inline-block;
       margin: 0 5px;
@@ -89,16 +93,6 @@ input.top-form {
         }
         ul {
           text-align: center;
-        }
-        @mixin mypage-dropdown-box($margin: 0 10px, $background-color: #f3f3f3) {
-          margin: $margin;
-          background-color: $background-color;
-        }
-        @mixin mypage-dropdown-box-list($display: block, $border: solid 0 gray, $height: 40px, $line-height: 40px) {
-          display: $display;
-          border: $border;
-          height: $height;
-          line-height: $line-height;
         }
         &__upper-box {
           @include mypage-dropdown-box;
@@ -152,6 +146,20 @@ input.top-form {
     }
     a {
       color: black;
+    }
+    &--login {
+      background-color: #ea352d;
+      border-radius: 4px;
+      text-align: center;
+      color: white;
+      padding: 0 10px;
+    }
+    &--reg {
+      border: solid 1px #0099e8;
+      border-radius: 4px;
+      text-align: center;
+      color: #0099e8;
+      padding: 0 10px;
     }
   }
 }
