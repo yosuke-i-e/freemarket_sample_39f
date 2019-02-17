@@ -7,41 +7,42 @@
 .mypage-contents
   .mypage-side-list
     = render 'side-list'
-  .mypage-information
-    .mypage-information__image
-      = image_tag('user_photo.png', class: 'mypage-information__image__icon')
-      .mypage-information__image__name
-        ユーザー名
-      .mypage-information__image__score
-        評価　0　出品数　0
-    .mypage-information__tabs
-      %input#info{checked: "checked", name: "tab_item", type: "radio"}/
-      %label.mypage-information__tabs--item{for: "info"}
-        お知らせ
-      %input#todo{name: "tab_item", type: "radio"}/
-      %label.mypage-information__tabs--item{for: "todo"}
-        やることリスト
-      #info_content.mypage-information__tabs--content
-        = render 'information'
-        .mypage-information__tabs--content__all
-          .mypage-information__tabs--content__all--body
-            = link_to '一覧を見る', root_path
-      #todo_content.mypage-information__tabs--content
-        .mypage-bought__tabs--content__none
-          現在、やることリストはありません
-    .mypage-bought
-      .mypage-bought--head
-        購入した商品
-      .mypage-bought__tabs
-        %input#transaction{checked: "checked", name: "bought_tab_item", type: "radio"}/
-        %label.mypage-bought__tabs--item{for: "transaction"}
-          取引中
-        %input#trade-history{name: "bought_tab_item", type: "radio"}/
-        %label.mypage-bought__tabs--item{for: "trade-history"}
-          過去の取引
-        #transaction_content.mypage-bought__tabs--content
+  .mypage-main
+    .mypage-information
+      .mypage-information__image
+        = image_tag('user_photo.png', class: 'mypage-information__image__icon')
+        .mypage-information__image__name
+          ユーザー名
+        .mypage-information__image__score
+          評価　0　出品数　0
+      .mypage-information__tabs
+        %input#info{checked: "checked", name: "tab_item", type: "radio"}/
+        %label.mypage-information__tabs--item{for: "info"}
+          お知らせ
+        %input#todo{name: "tab_item", type: "radio"}/
+        %label.mypage-information__tabs--item{for: "todo"}
+          やることリスト
+        #info_content.mypage-information__tabs--content
+          = render 'information'
+          .mypage-information__tabs--content__all
+            .mypage-information__tabs--content__all--body
+              = link_to '一覧を見る', root_path
+        #todo_content.mypage-information__tabs--content
           .mypage-bought__tabs--content__none
-            取引中の商品はありません
-        #trade-history_content.mypage-bought__tabs--content
-          .mypage-bought__tabs--content__none
-            過去に取引した商品はありません
+            現在、やることリストはありません
+      .mypage-bought
+        .mypage-bought--head
+          購入した商品
+        .mypage-bought__tabs
+          %input#transaction{checked: "checked", name: "bought_tab_item", type: "radio"}/
+          %label.mypage-bought__tabs--item{for: "transaction"}
+            取引中
+          %input#trade-history{name: "bought_tab_item", type: "radio"}/
+          %label.mypage-bought__tabs--item{for: "trade-history"}
+            過去の取引
+          #transaction_content.mypage-bought__tabs--content
+            .mypage-bought__tabs--content__none
+              取引中の商品はありません
+          #trade-history_content.mypage-bought__tabs--content
+            .mypage-bought__tabs--content__none
+              過去に取引した商品はありません
