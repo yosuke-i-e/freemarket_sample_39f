@@ -72,11 +72,13 @@
   }
 }
 
-
-.mypage-information {
+.mypage-main {
   display: inline-block;
   vertical-align: top;
   margin-left: 30px;
+}
+
+.mypage-information {
   &__image {
     background-image: image-url("user-bg.jpg");
     height: 200px;
@@ -252,5 +254,21 @@
         text-align: center;
       }
     }
+  }
+}
+
+.mypage-logout {
+  display: block;
+  height: 180px;
+  width: 700px;
+  background-color: white;
+  line-height: 180px;
+  text-align: center;
+  &__body {
+    display: inline-block;
+    background-color: #ea352d;
+    color: white;
+    line-height: 60px;
+    width: 350px;
   }
 }

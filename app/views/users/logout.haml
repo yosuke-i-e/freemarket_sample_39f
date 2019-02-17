@@ -1,0 +1,14 @@
+.nav
+  %ul
+    %li.nav__1
+      メルカリ
+    %li.nav__2
+      マイページ
+.mypage-contents
+  .mypage-side-list
+    = render 'side-list'
+  .mypage-main
+    .mypage-logout
+      = link_to destroy_user_session_path, method: :delete do
+        .mypage-logout__body
+          ログアウト

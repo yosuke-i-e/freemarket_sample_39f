@@ -53,4 +53,4 @@
     %li
       = link_to '電話番号の確認', root_path
     %li
-      = link_to 'ログアウト', root_path
+      = link_to 'ログアウト', user_logout_path(current_user.id)
