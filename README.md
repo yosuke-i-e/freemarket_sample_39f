@@ -5,11 +5,18 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
+|mail|string|null: false, unique: true|
+|password|integer|null: false|
 |profile|text||
 |point|integer||
 |image|string||
-|mail|string|null: false, unique: true|
-|password|integer|null: false|
 
 ### Association
 - has_one :credit_card
@@ -38,10 +45,6 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|last_name|string|null: false|
-|first_name|string|null: false|
-|last_name_kana|string|null: false|
-|first_name_kana|string|null: false|
 |postal_code|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
