@@ -12,7 +12,7 @@
       .mypage-information__image
         = image_tag('user_photo.png', class: 'mypage-information__image__icon')
         .mypage-information__image__name
-          ユーザー名
+          =current_user.nickname
         .mypage-information__image__score
           評価　0　出品数　0
       .mypage-information__tabs
