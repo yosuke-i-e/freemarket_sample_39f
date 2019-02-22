@@ -8,6 +8,54 @@ describe User do
       expect(user.errors[:email]).to include("を入力してください")
     end
 
+    it "is invalid without a nickname" do
+      user = build(:user, nickname: "")
+      user.valid?
+      expect(user.errors[:nickname]).to include("を入力してください")
+    end
+
+    it "is invalid without a last_name" do
+      user = build(:user, last_name: "")
+      user.valid?
+      expect(user.errors[:last_name]).to include("を入力してください")
+    end
+
+    it "is invalid without a first_name" do
+      user = build(:user, first_name: "")
+      user.valid?
+      expect(user.errors[:first_name]).to include("を入力してください")
+    end
+
+    it "is invalid without a last_name_kana" do
+      user = build(:user, last_name_kana: "")
+      user.valid?
+      expect(user.errors[:last_name_kana]).to include("を入力してください")
+    end
+
+    it "is invalid without a first_name_kana" do
+      user = build(:user, first_name_kana: "")
+      user.valid?
+      expect(user.errors[:first_name_kana]).to include("を入力してください")
+    end
+
+    it "is invalid without a birth_year" do
+      user = build(:user, birth_year: "")
+      user.valid?
+      expect(user.errors[:birth_year]).to include("を入力してください")
+    end
+
+    it "is invalid without a birth_month" do
+      user = build(:user, birth_month: "")
+      user.valid?
+      expect(user.errors[:birth_month]).to include("を入力してください")
+    end
+
+    it "is invalid without a birth_day" do
+      user = build(:user, birth_month: "")
+      user.valid?
+      expect(user.errors[:birth_month]).to include("を入力してください")
+    end
+
     it "is invalid without a formal email" do
       user = build(:user, email: "000")
       user.valid?

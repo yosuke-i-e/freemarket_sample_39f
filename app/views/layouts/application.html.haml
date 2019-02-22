@@ -30,7 +30,7 @@
                 .mypage-dropdown__image
                   = image_tag('user_photo.png', class: 'mypage-dropdown__image--photo')
                 .mypage-dropdown__name
-                  ユーザー名
+                  =current_user.nickname
                 %ul
                   %li
                     =link_to '評価:0', root_path

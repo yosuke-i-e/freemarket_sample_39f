@@ -3,8 +3,11 @@ $top-list-size: 13px;
 $top-link-color: #0099e8;
 $top-margin-left: 20%;
 $bottom-banner-margin-left: 20%;
-$background-color-gray: #f3f3f3;
+$background-color-gray: #f5f5f5;
 $border-color-gray: #eee;
+$red: #ea352d;
+$border-thin-gray: solid thin #eee;
+$p-font: bold 13px "メイリオ";
 
 @mixin bottom-icons($height: 68px, $margin-left: $bottom-banner-margin-left, $position: absolute, $top: 60%) {
   height: $height;

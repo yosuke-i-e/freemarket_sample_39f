@@ -1,0 +1,211 @@
+.sign-up {
+  background-color: $background-color-gray;
+}
+
+.sign-up-head {
+  a:hover {
+    opacity: 0.7;
+  }
+}
+
+.sign-up-body {
+  margin: 0 auto;
+  width: 700px;
+  &__form {
+    background-color: white;
+    &--head {
+      border-bottom: $border-thin-gray;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      height: 100px;
+      line-height: 100px;
+    }
+    &--body {
+      width: 320px;
+      margin: 0 auto;
+      padding: 50px 0;
+      &__field {
+        display: inline-block;
+        margin: 10px auto;
+        &--label {
+          display: inline-block;
+          text-align: left;
+          font: $p-font;
+        }
+        &--required {
+          display: inline-block;
+          background-color: $red;
+          color: white;
+          font-size: 12px;
+          border-radius: 4px;
+          padding: 0 3px;
+        }
+      }
+      &--p {
+        font: bold 15px "メイリオ";
+        margin: 10px auto;
+        &--body {
+          font: normal 13px "メイリオ";
+        }
+      }
+      &--desc-gray {
+        font-size: 12px;
+        color: gray;
+      }
+      &--desc {
+        font: normal 14px "メイリオ";
+        margin: 10px auto;
+        a {
+          color: $top-link-color
+        }
+      }
+      &__actions {
+        &--submit {
+          margin: 30px 0;
+          background-color: $red;
+          cursor: pointer;
+          color: white;
+          width: 320px;
+          height: 48px;
+        }
+      }
+    }
+  }
+}
+
+.sign-up-head {
+  margin: 0 auto;
+  width: 800px;
+  &--logo {
+    display: inline-block;
+    margin-top: 50px;
+  }
+  &--progress {
+    font-size: 0;
+    display: inline-block;
+    margin-left: 30px;
+    position: relative;
+    bottom: 30px;
+    &__text {
+      font-size: 12px;
+      ul {
+        li {
+          display: inline-block;
+          margin: 0 6px;
+          text-align: center;
+          width: 8em;
+          color: #ccc;
+          line-height: 30px;
+        }
+        li.active-font {
+          color: $red;
+        }
+      }
+    }
+    &__icon {
+      margin-left: 50px;
+      &__sen {
+        display: inline-block;
+        &--maru {
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          border-radius: 12px;
+          background-color: #ccc;
+          text-align: center;
+          line-height: 12px;
+        }
+      }
+      &__sen-first {
+        display: inline-block;
+      }
+      &__sen:before {
+        font-size: 1px;
+        border-top: 2px solid #ccc;
+        content: "";
+        width: 10em;
+        display: inline-block;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}
+
+.active-sen,
+.active-sen:before {
+  border-color: $red;
+}
+
+.active-maru,
+.active-maru:before {
+  background-color: $red;
+}
+
+.input-field {
+  height: 48px;
+  width: 320px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.selectwrap {
+  position: relative;
+  &__p {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  select {
+    margin: 5px 0;
+    background-color: white;
+    cursor: pointer;
+    display: inline-block;
+    height: 48px;
+    width: 150px;
+    padding: 0 10px;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
+.selectwrap:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border: 0px;
+  border-bottom: solid 2px gray;
+  border-right: solid 2px gray;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 45%;
+  right: 40px;
+  margin-top: -4px;
+}
+
+.devise-footer {
+  background-color: $background-color-gray;
+  text-align: center;
+  &--agreement {
+    padding: 20px 0;
+    ul {
+      li {
+        font-size: 12px;
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+  }
+  &--logo {
+    height: 80px;
+  }
+  &--copyright {
+    margin: 10px 0;
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title freemarket_sample_39
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = yield
+    .devise-footer
+      .devise-footer--agreement
+        %ul
+          %li プライバシーポリシー
+          %li メルカリ利用規約
+          %li 特定商取引に関する表記
+      .devise-footer--logo
+        = link_to root_path do
+          = image_tag('logo-gray.svg', class: 'devise-footer--logo')
+      .devise-footer--copyright
+        ©️ 2019 Mercari

@@ -1,21 +1,108 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.sign-up
+  .sign-up-head
+    .sign-up-head--logo
+      = link_to root_path do
+        = image_tag('logo.svg', size: "185x49")
+    .sign-up-head--progress
+      .sign-up-head--progress__text
+        %ul
+          %li.active-font 会員情報
+          %li 電話番号認証
+          %li お届け先住所入力
+          %li 支払方法
+          %li 完了
+      .sign-up-head--progress__icon
+        .sign-up-head--progress__icon__sen-first.acitive-sen
+          .sign-up-head--progress__icon__sen--maru.active-maru
+            　
+        .sign-up-head--progress__icon__sen
+          .sign-up-head--progress__icon__sen--maru
+            　
+        .sign-up-head--progress__icon__sen
+          .sign-up-head--progress__icon__sen--maru
+            　
+        .sign-up-head--progress__icon__sen
+          .sign-up-head--progress__icon__sen--maru
+            　
+        .sign-up-head--progress__icon__sen
+          .sign-up-head--progress__icon__sen--maru
+            　
+  .sign-up-body
+    .sign-up-body__form
+      .sign-up-body__form--head
+        会員情報入力
+      .sign-up-body__form--body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .sign-up-body__form--body__field
+            = f.label :nickname, "ニックネーム", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.text_field :nickname, autofocus: true, class: "input-field", placeholder: "例）メルカリ太郎"
+          .sign-up-body__form--body__field
+            = f.label :email, "メールアドレス", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-field", placeholder: "PC・携帯どちらでも可"
+          .sign-up-body__form--body__field
+            = f.label :password, "パスワード", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.password_field :password, autocomplete: "new-password", class: "input-field", placeholder: "#{@minimum_password_length}文字以上"
+          .sign-up-body__form--body__field
+            = f.label :password_confirmation, "パスワード(確認)", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "input-field", placeholder: "#{@minimum_password_length}文字以上"
+          .sign-up-body__form--body--p
+            本人確認
+            .sign-up-body__form--body--p--body
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .sign-up-body__form--body__field
+            = f.label :last_name, "姓(全角)", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "input-field", placeholder: "例）山田"
+          .sign-up-body__form--body__field
+            = f.label :first_name, "名（全角）", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "input-field", placeholder: "例）彩"
+          .sign-up-body__form--body__field
+            = f.label :last_name_kana, "姓カナ（全角）", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: "input-field", placeholder: "例）ヤマダ"
+          .sign-up-body__form--body__field
+            = f.label :first_name_kana, "名カナ（全角）", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: "input-field", placeholder: "例）アヤ"
+          .sign-up-body__form--body__field
+            = f.label :birth_day, "生年月日", class: "sign-up-body__form--body__field--label"
+            .sign-up-body__form--body__field--required
+              必須
+            .selectwrap
+              = f.select :birth_year, autofocus: true, class: "input-field" do
+                %option{value: ""} --
+                = (1900..2019).each do |y|
+                  %option{value: y}= y
+              .selectwrap__p 年
+            .selectwrap
+              = f.select :birth_month, autofocus: true, class: "input-field" do
+                %option{value: ""} --
+                = (1..12).each do |m|
+                  %option{value: m}= m
+              .selectwrap__p 月
+            .selectwrap
+              = f.select :birth_day, autofocus: true, class: "input-field" do
+                %option{value: ""} --
+                = (1..31).each do |d|
+                  %option{value: d}= d
+              .selectwrap__p 日
+          .sign-up-body__form--body--desc-gray
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .sign-up-body__form--body--desc
+            「次へ進む」のボタンを押すことにより、#{link_to '利用規約', root_path}に同意したものとみなします
+          .sign-up-body__form--body__actions
+            = f.submit "次へ進む", class: "sign-up-body__form--body__actions--submit"
