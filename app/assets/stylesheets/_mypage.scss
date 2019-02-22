@@ -1,6 +1,6 @@
 .nav {
   padding-left: 10%;
-  border-top: solid thin #eee;
+  border-top: $border-thin-gray;
   border-bottom: solid #eee;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   font-size: $top-list-size;
@@ -37,8 +37,8 @@
         @include mypage-dropdown-box-list;
         text-align: left;
         padding-left: 10px;
-        border-top: solid thin #eee;
-        border-bottom: solid thin #eee;
+        border-top: $border-thin-gray;
+        border-bottom: $border-thin-gray;
         a {
           display: block;
           position: absolute;
