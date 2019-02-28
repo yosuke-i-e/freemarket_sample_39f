@@ -1,7 +1,13 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.limit(4).order(:created_at).includes(:item_images)
+    @items = Item.order("created_at DESC").includes(:item_images).limit(top_items)
+  end
+
+  private
+
+  def top_items
+    return 4
   end
 
 end
