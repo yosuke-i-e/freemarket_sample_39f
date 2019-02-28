@@ -1,0 +1,12 @@
+= link_to root_path do
+  .item-box
+    .item-box__image
+      - item.item_images.each_with_index do |image, i|
+        - if i == 0
+          = image_tag(image.body, class: 'item-image')
+    .item-box__body
+      %h3.item-box__body__name
+        = item.name
+      %h3.item-box__body__price
+        ¥
+        = item.price
