@@ -15,11 +15,12 @@ a {
       font-size: 16px;
     }
     &__price {
-      text-align: right;
+      text-align: left;
     }
   }
 }
 
 .item-image {
   height: 213px;
+  width: 213px;
 }
