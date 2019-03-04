@@ -19,6 +19,12 @@
   }
 }
 
+.user-icon {
+  border-radius: 50%;
+  height: 60px;
+  margin-top: 5%;
+}
+
 .mypage-contents {
   background-color: $background-color-gray;
   padding-top: 30px;
@@ -84,11 +90,6 @@
     height: 200px;
     width: 700px;
     text-align: center;
-    &__icon {
-      border-radius: 50%;
-      height: 60px;
-      margin-top: 5%;
-    }
     &__name {
       font-size: 15px;
       font-weight: bold;
@@ -255,6 +256,50 @@
       }
     }
   }
+}
+
+.mypage-edit {
+  width: 700px;
+  background-color: white;
+  &--header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &--image {
+    background-image: image-url("user-bg.jpg");
+    height: 156px;
+    &__body {
+      line-height: 156px;
+      text-align: center;
+      &--icon {
+        display: inline-block;
+        position: relative;
+        top: 20px;
+      }
+      &--nickname {
+        display: inline-block;
+        input {
+          width: 200px;
+        }
+      }
+    }
+  }
+  &--body {
+    padding: 20px 5px;
+    text-align: center;
+    &--actions {
+      &__submit {
+        @include submit($red, pointer, white, 100%, 48px);
+      }
+    }
+  }
+}
+
+.text-field {
+  height: 194px;
+  width: 95%;
+  padding: 10px;
 }
 
 .mypage-logout {
