@@ -61,3 +61,11 @@ $p-font: bold 13px "メイリオ";
   height: $height;
   line-height: $line-height;
 }
+
+@mixin submit($background-color: $red, $cursor: pointer, $color: white, $width: 320px, $height: 48px) {
+  background-color: $background-color;
+  cursor: $cursor;
+  color: $color;
+  width: $width;
+  height: $height;
+}
