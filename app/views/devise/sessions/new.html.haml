@@ -1,17 +1,24 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.sign-in
+  .sign-in-head
+    .sign-in-head--logo
+      = link_to root_path do
+        = image_tag('logo.svg', size: "185x49")
+  .sign-in-body
+    .sign-in-body__form
+      .sign-in-body__form--head
+        アカウントをお持ちでない方はこちら
+        = link_to new_user_registration_path do
+          .sign-in-body__form--head__sign-up
+            新規会員登録
+      .sign-in-body__form--body
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .sign-in-body__form--body--field-wrap
+            .sign-in-body__form--body__field
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'input-field'
+            .sign-in-body__form--body__field
+              = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: 'input-field'
+            .sign-in-body__form--body__actions
+              = f.submit "ログイン", class: "sign-in-body__form--body__actions--submit"
+        .sign-in-body__form--body__forgot-password-wrap
+          .sign-in-body__form--body__forgot-password
+            = link_to 'パスワードをお忘れの方', new_user_password_path
