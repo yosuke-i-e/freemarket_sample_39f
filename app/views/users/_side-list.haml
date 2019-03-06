@@ -41,7 +41,7 @@
 .mypage-side-list__body
   %ul
     %li
-      = link_to 'プロフィール', edit_user_path
+      = link_to 'プロフィール', edit_user_path(current_user)
     %li
       = link_to '住所変更', root_path
     %li
