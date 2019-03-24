@@ -9,14 +9,22 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update!(params.require(:user).permit(:nickname, :profile))
-    redirect_to edit_user_path
+    @user.update(update_params)
+    if @user.update(update_params)
+      redirect_to user_path(current_user)
+    else
+      render 'edit'
+    end
   end
 
   private
 
   def set_user
     @user = User.find(current_user.id)
+  end
+
+  def update_params
+    params.require(:user).permit(:nickname, :profile)
   end
 
 end

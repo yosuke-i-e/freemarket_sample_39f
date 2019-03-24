@@ -17,6 +17,8 @@
             .mypage-edit--image__body--icon
               = image_tag('user_photo.png', class: 'user-icon')
             .mypage-edit--image__body--nickname
+              .error-message
+                = render 'layouts/error-messages', model: f.object
               = f.text_field :nickname, class: "input-field"
         .mypage-edit--body
           .mypage-edit--body--text
