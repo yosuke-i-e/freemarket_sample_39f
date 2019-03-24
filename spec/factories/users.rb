@@ -29,6 +29,7 @@ FactoryGirl.define do
     birth_year            {FactoryGirl.generate(:random_year)}
     birth_month           {FactoryGirl.generate(:random_month)}
     birth_day             {FactoryGirl.generate(:random_day)}
+    profile               gimei.romaji
   end
 
 end

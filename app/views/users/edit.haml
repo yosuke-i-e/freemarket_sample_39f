@@ -1,0 +1,27 @@
+.nav
+  %ul
+    %li.nav__1
+      メルカリ
+    %li.nav__2
+      マイページ
+.mypage-contents
+  .mypage-side-list
+    = render 'side-list'
+  .mypage-main
+    .mypage-edit
+      = form_for @user do |f|
+        .mypage-edit--header
+          プロフィール
+        .mypage-edit--image
+          .mypage-edit--image__body
+            .mypage-edit--image__body--icon
+              = image_tag('user_photo.png', class: 'user-icon')
+            .mypage-edit--image__body--nickname
+              .error-message
+                = render 'layouts/error-messages', model: f.object
+              = f.text_field :nickname, class: "input-field"
+        .mypage-edit--body
+          .mypage-edit--body--text
+            = f.text_area :profile, class: "text-field", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+          .mypage-edit--body--actions
+            = f.submit "変更する", class: "mypage-edit--body--actions__submit"
