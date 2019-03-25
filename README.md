@@ -62,12 +62,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true|
-|state|string||
-|postage|string||
-|shipping_date|integer||
-|shipping_method|string||
+|state|string|null: false|
+|postage|string|null: false|
+|shipping_date|string|null: false|
 |price|integer|null: falise|
-|description|text||
+|description|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 |region_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
