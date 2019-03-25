@@ -72,7 +72,6 @@ end
 
 group :production do
   gem 'unicorn'
-  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -81,4 +80,5 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
+gem 'fog-aws'
 
