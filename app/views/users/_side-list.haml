@@ -9,7 +9,7 @@
     %li
       = link_to 'いいね！一覧', root_path
     %li
-      = link_to '出品する', root_path
+      = link_to '出品する', new_user_item_path(current_user.id)
     %li
       = link_to '出品した商品-出品中', root_path
     %li
