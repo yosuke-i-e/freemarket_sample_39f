@@ -80,5 +80,5 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
-gem 'fog-aws'
+gem 'fog'
 
