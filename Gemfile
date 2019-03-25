@@ -58,7 +58,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'carrierwave'
+  gem 'carrierwave', '~>1.0'
   gem 'mini_magick'
 end
 
@@ -72,6 +72,7 @@ end
 
 group :production do
   gem 'unicorn'
+  gem 'fog-aws'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -80,5 +81,4 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
-gem 'fog-aws'
 
